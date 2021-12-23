@@ -1,7 +1,5 @@
 package com.cab.entities;
 
-import java.util.Objects;
-
 public class Invoice {
 
 	public int rideCount;
@@ -28,7 +26,10 @@ public class Invoice {
 				&& rideCount == other.rideCount
 				&& Double.doubleToLongBits(totalFare) == Double.doubleToLongBits(other.totalFare);
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Invoice [rideCount=" + rideCount + ", totalFare=" + totalFare + ", avgFare=" + avgFare + "]";
+	}
 
 }
