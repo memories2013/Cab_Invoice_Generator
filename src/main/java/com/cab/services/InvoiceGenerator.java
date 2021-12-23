@@ -1,5 +1,6 @@
 package com.cab.services;
 
+import com.cab.entities.Invoice;
 import com.cab.entities.Ride;
 
 public class InvoiceGenerator {
@@ -10,7 +11,7 @@ public class InvoiceGenerator {
 		return fare > 5 ? fare : 5;
 	}
 	
-	public double generateInvoice(Ride[] rides) {
+	public Invoice generateInvoice(Ride[] rides) {
 		double singleFare;
 		double totalFare = 0;
 		for (Ride ride : rides) {
@@ -18,8 +19,7 @@ public class InvoiceGenerator {
 			totalFare += singleFare > 5 ? singleFare : 5;
 		}
 		
-		
-		return totalFare;
+		return new Invoice(rides.length, totalFare, totalFare / rides.length);
 	}
 	
 	
